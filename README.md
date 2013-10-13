@@ -13,6 +13,9 @@ Copyright (C) 2012-2013 Javier Llorente <javier@opensuse.org>
 Ejemplos de uso
 ---------------
 
+El método getPrevisiones() devuelve objetos de tipo Prevision que normalmente son 
+siete por municipio (previsión del tiempo para los próximos siete días).
+
 Para obtener los partes de una provincia entera, pondremos el rango de IDs.
 ```java
 JAEMET jaemet = new JAEMET();
@@ -25,7 +28,6 @@ previsiones.addAll(jaemet.getPrevisiones());
 for (Prevision prevision : previsiones) {
 	System.out.print(prevision.getId_prediccion() + " " + prevision.getId() + " " + prevision.getMunicipio() + " ");
 	System.out.println(prevision.getFecha() + " " + prevision.getEstado_cielo() + " " + prevision.getT_max() + "C " + prevision.getT_min() + "C");
-			
 }
 ```
 
@@ -36,8 +38,10 @@ ArrayList<Prevision> previsiones = new ArrayList<>();
 
 jaemet.setMunicipio(28079);
 previsiones.add(jaemet.getPrevisiones());
-System.out.print(prevision.getId_prediccion() + " " + prevision.getId() + " " + prevision.getMunicipio() + " ");
-System.out.println(prevision.getFecha() + " " + prevision.getEstado_cielo() + " " + prevision.getT_max() + "C " + prevision.getT_min() + "C");
+for (Prevision prevision : previsiones) {
+	System.out.print(prevision.getId_prediccion() + " " + prevision.getId() + " " + prevision.getMunicipio() + " ");
+	System.out.println(prevision.getFecha() + " " + prevision.getEstado_cielo() + " " + prevision.getT_max() + "C " + prevision.getT_min() + "C");
+}
 
 ```
 
