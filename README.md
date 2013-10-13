@@ -13,7 +13,7 @@ Copyright (C) 2012-2013 Javier Llorente <javier@opensuse.org>
 Ejemplos de uso
 ---------------
 
-El método getPrevisiones() devuelve objetos de tipo Prevision que normalmente son 
+El método `getPrevisiones()` devuelve objetos de tipo Prevision que normalmente son 
 siete por municipio (previsión del tiempo para los próximos siete días).
 
 Para obtener los partes de una provincia entera, pondremos el rango de IDs.
@@ -31,7 +31,7 @@ for (Prevision prevision : previsiones) {
 }
 ```
 
-Si sólo queremos obtener el parte meteorológico de un municipio, usaremos el método setMunicipio().
+Si sólo queremos obtener el parte meteorológico de un municipio, usaremos el método `setMunicipio()`.
 ```java
 JAEMET jaemet = new JAEMET();
 ArrayList<Prevision> previsiones = new ArrayList<>();
