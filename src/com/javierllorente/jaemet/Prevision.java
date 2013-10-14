@@ -1,12 +1,12 @@
 package com.javierllorente.jaemet;
 
 /**
- * @author javier
+ * @author Javier Llorente
  *
  */
 
 public class Prevision {
-
+	
 	private int id_prediccion;
 	private String id;
 	private String municipio;

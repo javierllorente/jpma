@@ -13,7 +13,7 @@ import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamReader;
 
 /**
- * @author javier
+ * @author Javier Llorente
  *
  */
 
@@ -99,6 +99,9 @@ public class XMLstream {
 
 						for (int i = 0; i < xmlStreamReader.getAttributeCount(); i++) {						
 
+							// Guarda el valor de estado_cielo si su valor es 12-18
+							// o bien si sólo tiene un atributo
+							
 							if (xmlStreamReader.getAttributeValue(i).equals("12-18")) {
 								i++;
 								prevision.setEstado_cielo(xmlStreamReader.getAttributeValue(i));

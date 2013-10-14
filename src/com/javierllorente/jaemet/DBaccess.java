@@ -6,7 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 /**
- * @author javier
+ * @author Javier Llorente
  *
  */
 

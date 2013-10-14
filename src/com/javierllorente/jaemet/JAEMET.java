@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import javax.xml.stream.*;
 
 /**
- * @author javier
+ * @author Javier Llorente
  *
  */
 
@@ -23,11 +23,21 @@ public class JAEMET {
 		xmlStream = new XMLstream(previsiones);
 	}
 	
+	/**
+	 * Devuelve un ArrayList de objetos tipo Prevision 
+	 * <p>
+	 * @return ArrayList&lt;Prevision&gt;
+	 */	
 	public ArrayList<Prevision> getPrevisiones() {
 		
 		return previsiones;
 	}
 	
+	/**
+	 * Previsi&oacute;n para los pr&oacute;ximos siete d&iacute;as del municipio puesto 
+	 * <p>
+	 * @param  municipio  ID del municipio (sin ning&uacute;n zero delante)
+	 */	
 	public void setMunicipio(int municipio) {
 		
 		try {			
@@ -43,6 +53,13 @@ public class JAEMET {
 		}	
 	}
 	
+	/**
+	 * Previsi&oacute;n para los pr&oacute;ximos siete d&iacute;as de los municipios puestos
+	 * <br> En caso de que el ID no exista, continuar&aacute; con el siguiente.
+	 * <p>
+	 * @param  begin incio del rango de  municipios
+	 * @param  end fin del rango de municipios
+	 */	
 	public void setMunicipios(int begin, int end) {
 
 		for (int i=begin; i<=end; i++) {
