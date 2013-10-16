@@ -77,13 +77,13 @@ public class JAEMET {
 		}
 	}
 	/**
-	 * Futura funci&oacute;n
-	 * @param provincia
+	 * Previsi&oacute;n para los pr&oacute;ximos siete d&iacute;as de los municipios de la provincia puesta
+	 * <p>
+	 * @param provincia Provincia.PROVINCIA (ej: Provincia.MADRID)
 	 */
 	public void setProvincia(Provincia provincia) {
 		
-//		Municipios m = new Municipios();
-//		listaMunicipios.addAll(m.getMunicipios(provincia));		
+		listaMunicipios.addAll(Municipios.getIDs(provincia));	
 		
 	}
 	
