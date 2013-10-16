@@ -16,13 +16,12 @@ Ejemplos de uso
 El método `getPrevisiones()` devuelve objetos de tipo `Prevision` que normalmente son 
 siete por municipio (previsión del tiempo para los próximos siete días).
 
-Para obtener los partes de una provincia entera, pondremos el rango de IDs.
+Para obtener los partes de todos los municipios de la provincia, ponemos el nombre de la provincia.
 ```java
 JAEMET jaemet = new JAEMET();
-ArrayList<Prevision> previsiones = new ArrayList<>();
+ArrayList<Prevision> previsiones = new ArrayList<Prevision>();
 
-jaemet.setMunicipios(2001, 2086);
-jaemet.setMunicipios(49002, 49275);
+jaemet.setProvincia(Provincia.MADRID);
 previsiones.addAll(jaemet.getPrevisiones());
 
 for (Prevision prevision : previsiones) {
@@ -34,7 +33,7 @@ for (Prevision prevision : previsiones) {
 Si sólo queremos obtener el parte meteorológico de un municipio, usaremos el método `setMunicipio()`.
 ```java
 JAEMET jaemet = new JAEMET();
-ArrayList<Prevision> previsiones = new ArrayList<>();
+ArrayList<Prevision> previsiones = new ArrayList<Prevision>();
 
 jaemet.setMunicipio(28079);
 previsiones.add(jaemet.getPrevisiones());
@@ -45,6 +44,10 @@ for (Prevision prevision : previsiones) {
 
 ```
 
+Dependencias
+------------
+jsoup
+mysql-connector-java (opcional)
 
 
 Licencia
