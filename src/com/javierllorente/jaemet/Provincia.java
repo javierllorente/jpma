@@ -1,5 +1,10 @@
 package com.javierllorente.jaemet;
 
+/**
+ * @author Javier Llorente
+ *
+ */
+
 public enum Provincia {
 	ALAVA(1), ALBACETE(2), ALICANTE(3), ALMERIA(4), AVILA(5), BADAJOZ(6), BALEARES(7), 
 	BARCELONA(8), BURGOS(9), CACERES(10), CADIZ(11), CASTELLON(12), CIUDAD_REAL(13), 
