@@ -46,8 +46,8 @@ for (Prevision prevision : previsiones) {
 
 Dependencias
 ------------
-jsoup
-mysql-connector-java (opcional)
+- jsoup para obtener los IDs de todos los municipios de la provincia
+- mysql-connector-java si se usa la clase DBaccess (opcional)
 
 
 Licencia
