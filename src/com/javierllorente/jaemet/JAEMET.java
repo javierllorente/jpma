@@ -4,8 +4,6 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 
-import javax.xml.stream.*;
-
 /**
  * @author Javier Llorente
  *
