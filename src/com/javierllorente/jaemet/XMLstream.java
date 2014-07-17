@@ -29,7 +29,6 @@ public class XMLstream {
 	}
 	
 	public XMLstream(ArrayList<Prevision> previsiones) {
-		super();
 		this.previsiones = previsiones;
 	}
 	
@@ -47,8 +46,7 @@ public class XMLstream {
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
-		
+		}		
 	}
 	
 	ArrayList<Prevision> getContent() {		
@@ -84,7 +82,7 @@ public class XMLstream {
 						if (xmlStreamReader.getLocalName()=="root") {
 							id_municipio = xmlStreamReader.getAttributeValue(0);
 
-						} else if(xmlStreamReader.getLocalName()=="nombre") {
+						} else if (xmlStreamReader.getLocalName()=="nombre") {
 							municipio = xmlStreamReader.getElementText();
 
 						} else if (xmlStreamReader.getLocalName()=="provincia") {
@@ -106,16 +104,13 @@ public class XMLstream {
 								// o bien si sólo tiene un atributo
 
 								if (xmlStreamReader.getAttributeValue(i).equals("12-18")) {
-									i++;
-									prevision.setEstado_cielo(xmlStreamReader.getAttributeValue(i));
+									prevision.setEstado_cielo(xmlStreamReader.getAttributeValue(++i));
 
 								} else if (xmlStreamReader.getAttributeValue(i).equals("12-24")) {
-									i++;
-									prevision.setEstado_cielo(xmlStreamReader.getAttributeValue(i));
+									prevision.setEstado_cielo(xmlStreamReader.getAttributeValue(++i));
 
 								} else if (xmlStreamReader.getAttributeCount()==1) {
 									prevision.setEstado_cielo(xmlStreamReader.getAttributeValue(i));
-
 								}
 
 							} // end for
@@ -146,7 +141,7 @@ public class XMLstream {
 
 							id_prediccion++;
 							previsiones.add(prevision);
-
+							
 						}				
 
 					} // end START_ELEMENT		
