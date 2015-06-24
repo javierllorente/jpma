@@ -1,4 +1,4 @@
-jaemet
+aemet
 ======
 
 Biblioteca de Java para obtener y procesar los partes meteorológicos de la AEMET
@@ -18,11 +18,11 @@ siete por municipio (previsión del tiempo para los próximos siete días).
 
 Para obtener los partes de todos los municipios de la provincia, ponemos el nombre de la provincia.
 ```java
-JAEMET jaemet = new JAEMET();
+AEMET aemet = new AEMET();
 ArrayList<Prevision> previsiones = new ArrayList<Prevision>();
 
-jaemet.setProvincia(Provincia.MADRID);
-previsiones.addAll(jaemet.getPrevisiones());
+aemet.setProvincia(Provincia.MADRID);
+previsiones.addAll(aemet.getPrevisiones());
 
 for (Prevision prevision : previsiones) {
 	System.out.print(prevision.getId_prediccion() + " " + prevision.getId() + " " + prevision.getMunicipio() + " ");
@@ -32,11 +32,11 @@ for (Prevision prevision : previsiones) {
 
 Si sólo queremos obtener el parte meteorológico de un municipio, usaremos el método `setMunicipio()`.
 ```java
-JAEMET jaemet = new JAEMET();
+AEMET aemet = new AEMET();
 ArrayList<Prevision> previsiones = new ArrayList<Prevision>();
 
-jaemet.setMunicipio(28079);
-previsiones.add(jaemet.getPrevisiones());
+aemet.setMunicipio(28079);
+previsiones.add(aemet.getPrevisiones());
 for (Prevision prevision : previsiones) {
 	System.out.print(prevision.getId_prediccion() + " " + prevision.getId() + " " + prevision.getMunicipio() + " ");
 	System.out.println(prevision.getFecha() + " " + prevision.getEstado_cielo() + " " + prevision.getT_max() + "C " + prevision.getT_min() + "C");
