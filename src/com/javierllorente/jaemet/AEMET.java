@@ -16,6 +16,9 @@
  */
 package com.javierllorente.jaemet;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -29,29 +32,41 @@ import java.util.logging.Logger;
 public class AEMET {
 
     private static final String AEMET_URL = "http://www.aemet.es/xml/municipios/localidad_";
+    private HttpURLConnection connection = null;
     private final ArrayList<Integer> listaMunicipios;
-    private ArrayList<Prevision> previsiones;
     private final XMLStream xmlStream;
 
     public AEMET() {
         listaMunicipios = new ArrayList<>();
-        previsiones = new ArrayList<>();
-        xmlStream = new XMLStream(previsiones);
+        xmlStream = new XMLStream();
     }
-
+    
+    InputStream getRequest(URL url) {
+        InputStream content = null;
+        try {
+            connection = (HttpURLConnection) url.openConnection();
+            content = (InputStream) connection.getInputStream();
+        } catch (IOException ex) {
+            Logger.getLogger(XMLStream.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return content;
+    }
+    
     /**
      * Devuelve un ArrayList de objetos tipo Prevision
      * <p>
      * @return ArrayList&lt;Prevision&gt;
      */
     public ArrayList<Prevision> getPrevisiones() {
+        ArrayList<Prevision> previsiones = new ArrayList<>();
         for (int municipio : listaMunicipios) {
             try {
-                xmlStream.setUrl(new URL(AEMET_URL + String.format("%05d", municipio) + ".xml"));
+                URL url = new URL(AEMET_URL + String.format("%05d", municipio) + ".xml");
+                InputStream data = getRequest(url);
+                previsiones.addAll(xmlStream.parsePrevisiones(data));
             } catch (MalformedURLException ex) {
                 Logger.getLogger(AEMET.class.getName()).log(Level.SEVERE, null, ex);
             }
-            previsiones = xmlStream.getContent();
         }
         listaMunicipios.clear();
         return previsiones;
@@ -89,5 +104,13 @@ public class AEMET {
      */
     public void setProvincia(Provincia provincia) {
         listaMunicipios.addAll(Municipios.getIds(provincia));
+    }
+    
+    /**
+     * Devueleve el n&uacute;mero de municipios añadidos
+     * @return int
+     */
+    public int getMunicipioCount() {
+        return listaMunicipios.size();
     }
 }
