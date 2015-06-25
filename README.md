@@ -1,4 +1,4 @@
-aemet
+jAEMET
 ======
 
 Biblioteca de Java para obtener y procesar los partes meteorológicos de la [AEMET](http://www.aemet.es/)
