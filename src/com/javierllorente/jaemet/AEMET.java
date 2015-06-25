@@ -107,7 +107,7 @@ public class AEMET {
     }
     
     /**
-     * Devueleve el n&uacute;mero de municipios añadidos
+     * Devuelve el n&uacute;mero de municipios añadidos
      * @return int
      */
     public int getMunicipioCount() {
