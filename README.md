@@ -1,7 +1,7 @@
 aemet
 ======
 
-Biblioteca de Java para obtener y procesar los partes meteorológicos de la AEMET
+Biblioteca de Java para obtener y procesar los partes meteorológicos de la [AEMET](http://www.aemet.es/)
 
 Copyright (C) 2012-2015 Javier Llorente <javier@opensuse.org>
 
