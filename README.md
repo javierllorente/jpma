@@ -19,7 +19,7 @@ siete por municipio (previsión del tiempo para los próximos siete días).
 Para obtener los partes de todos los municipios de la provincia, ponemos el nombre de la provincia.
 ```java
 AEMET aemet = new AEMET();
-ArrayList<Prevision> previsiones = new ArrayList<Prevision>();
+ArrayList<Prevision> previsiones = new ArrayList<>();
 
 aemet.setProvincia(Provincia.MADRID);
 previsiones.addAll(aemet.getPrevisiones());
@@ -33,7 +33,7 @@ for (Prevision prevision : previsiones) {
 Si sólo queremos obtener el parte meteorológico de un municipio, usaremos el método `setMunicipio()`.
 ```java
 AEMET aemet = new AEMET();
-ArrayList<Prevision> previsiones = new ArrayList<Prevision>();
+ArrayList<Prevision> previsiones = new ArrayList<>();
 
 aemet.setMunicipio(28079);
 previsiones.add(aemet.getPrevisiones());
