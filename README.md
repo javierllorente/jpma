@@ -54,7 +54,7 @@ Para usar MySQL, tienes que crear una base de datos (pma, por ejemplo)
 ```
 mysql -u root -p -e "CREATE DATABASE IF NOT EXISTS `pma` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci"
 ```
-e importar la estructura (pma.sql)
+e importar la estructura ([pma.sql](db/pma.sql)
 ```
 mysql -u root -p pma < db/pma.sql
 ```
