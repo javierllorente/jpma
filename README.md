@@ -50,13 +50,14 @@ for (Prevision prevision : previsiones) {
 Base de datos
 -------------
 
-Para usar MySQL, tienes que crear una base de datos (pma, por ejemplo) e importar la estructura (pma.sql)
+Para usar MySQL, tienes que crear una base de datos (pma, por ejemplo)
 ```sql
-CREATE DATABASE IF NOT EXISTS `pma` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;```
+CREATE DATABASE IF NOT EXISTS `pma` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+```
+e importar la estructura (pma.sql)
 ```mysql -u root -p pma < db/pma.sql```
 
 El siguiente paso sería usar la clase DBAccess para conectarse y actualizar la base de datos;
-
 ```java
 PMA pma = new PMA();
 System.out.println("Obteniendo conexión a la base de datos...");
