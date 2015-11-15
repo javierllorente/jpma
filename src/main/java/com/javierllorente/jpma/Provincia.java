@@ -17,7 +17,8 @@
 package com.javierllorente.jpma;
 
 /**
- *
+ * Clase Provincia (enum)
+ * 
  * @author javier
  */
 public enum Provincia {

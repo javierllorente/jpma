@@ -17,7 +17,8 @@
 package com.javierllorente.jpma;
 
 /**
- *
+ * Previsión del tiempo
+ * 
  * @author javier
  */
 public class Prevision {

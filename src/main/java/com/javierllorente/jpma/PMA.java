@@ -26,7 +26,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- *
+ * Clase principal (la fachada)
+ * 
  * @author javier
  */
 public class PMA {

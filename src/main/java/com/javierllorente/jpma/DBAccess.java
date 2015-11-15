@@ -24,7 +24,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- *
+ * Clase para conectarse y actualizar la base de datos
+ * 
  * @author javier
  */
 public class DBAccess {
