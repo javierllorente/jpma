@@ -2,9 +2,9 @@ jPMA
 ======
 Predicción meteorológica de la AEMET (PMA)
 
-Biblioteca de Java para obtener y procesar los partes meteorológicos de la [AEMET](http://www.aemet.es/)
+Paquete: com.javierllorente.jpma
 
-Los partes meteorológicos se pueden usar y reproducir siempre que se mencione a la AEMET como autora de los mismos.
+Biblioteca de Java para obtener y procesar los partes meteorológicos de la [AEMET](http://www.aemet.es/). Los partes meteorológicos se pueden usar y reproducir siempre que se mencione a la AEMET como autora de los mismos.
 
 Copyright (C) 2012-2015 Javier Llorente <javier@opensuse.org>
 
@@ -61,12 +61,6 @@ mysql -u root -p pma < db/pma.sql
 
 El último paso sería usar la clase DBAccess para conectarse y actualizar la base de datos;
 ```java
-import com.javierllorente.jpma.PMA;
-import com.javierllorente.jpma.DBAccess;
-import com.javierllorente.jpma.Prevision;
-import com.javierllorente.jpma.Provincia;
-import java.util.ArrayList;
-
 PMA pma = new PMA();
 System.out.println("Obteniendo conexión a la base de datos...");
 DBAccess db = new DBAccess("jdbc:mysql://localhost:3306/", "base_de_datos", "usuario", "contraseña");
