@@ -1,4 +1,1 @@
-[Desktop Entry]
-Icon=folder
-Type=Link
-URL[$e]=file://$HOME/NetBeansProjects/jpma/target/site/apidocs/
+target/site/apidocs
