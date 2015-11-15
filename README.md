@@ -61,6 +61,12 @@ mysql -u root -p pma < db/pma.sql
 
 El último paso sería usar la clase DBAccess para conectarse y actualizar la base de datos;
 ```java
+import com.javierllorente.jpma.PMA;
+import com.javierllorente.jpma.DBAccess;
+import com.javierllorente.jpma.Prevision;
+import com.javierllorente.jpma.Provincia;
+import java.util.ArrayList;
+
 PMA pma = new PMA();
 System.out.println("Obteniendo conexión a la base de datos...");
 DBAccess db = new DBAccess("jdbc:mysql://localhost:3306/", "base_de_datos", "usuario", "contraseña");
