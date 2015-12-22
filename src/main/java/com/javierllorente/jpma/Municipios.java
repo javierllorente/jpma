@@ -37,15 +37,15 @@ class Municipios {
     static ArrayList<Integer> getIds(Provincia provincia) {
         ArrayList<Integer> idsMunicipios = new ArrayList<>();
         try {
-            doc = Jsoup.connect(AEMET_URL + provincia.getId()).get();
+            doc = Jsoup.connect(AEMET_URL + provincia.getId() + "&w=t").get();
         } catch (IOException ex) {
             Logger.getLogger(Municipios.class.getName()).log(Level.SEVERE, null, ex);
         }
         if (doc != null) {
-            Elements optionElements = doc.select("div.width250px > select.form_combo_box > option");
+            Elements linkElements = doc.select("tr.localidades > td > a");
             final String regex = "\\D";
-            for (Element optionElement : optionElements) {
-                String result = optionElement.attr("value");
+            for (Element linkElement : linkElements) {
+                String result = linkElement.attr("href");
                 String[] items = result.split(regex);
                 for (String item : items) {
                     if (!item.isEmpty()) {
