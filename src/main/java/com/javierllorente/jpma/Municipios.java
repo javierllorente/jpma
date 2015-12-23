@@ -31,13 +31,13 @@ import org.jsoup.select.Elements;
  */
 class Municipios {
 
-    private static final String AEMET_URL = "http://www.aemet.es/es/eltiempo/prediccion/municipios?p=";
+    private static final String AEMET_PROVINCIA_URL = "http://www.aemet.es/es/eltiempo/prediccion/municipios?p=";
     private static Document doc = null;
 
     static ArrayList<Integer> getIds(Provincia provincia) throws MunicipioIdNotFoundException {
         ArrayList<Integer> idsMunicipios = new ArrayList<>();
         try {
-            doc = Jsoup.connect(AEMET_URL + provincia.getId() + "&w=t").get();
+            doc = Jsoup.connect(AEMET_PROVINCIA_URL + provincia.getId() + "&w=t").get();
         } catch (IOException ex) {
             Logger.getLogger(Municipios.class.getName()).log(Level.SEVERE, null, ex);
         }

@@ -32,7 +32,7 @@ import java.util.logging.Logger;
  */
 public class PMA {
 
-    private static final String AEMET_URL = "http://www.aemet.es/xml/municipios/localidad_";
+    private static final String AEMET_PREV_MUNICIPIO_URL = "http://www.aemet.es/xml/municipios/localidad_";
     private HttpURLConnection connection = null;
     private final ArrayList<Integer> listaMunicipios;
     private final XMLStream xmlStream;
@@ -72,7 +72,7 @@ public class PMA {
         ArrayList<Prevision> previsiones = new ArrayList<>();
         for (int municipio : listaMunicipios) {
             try {
-                URL url = new URL(AEMET_URL + String.format("%05d", municipio) + ".xml");
+                URL url = new URL(AEMET_PREV_MUNICIPIO_URL + String.format("%05d", municipio) + ".xml");
                 InputStream data = getRequest(url);
                 previsiones.addAll(xmlStream.parsePrevisiones(data));
             } catch (MalformedURLException | MunicipioIdNotFoundException ex) {
