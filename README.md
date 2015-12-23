@@ -87,7 +87,7 @@ Dependencias
 Licencia
 --------
 Esta biblioteca está bajo la licencia GPL 3.0. 
-Para más detalles, echa un vistazo a gpl-3.0.txt
+Para más detalles, echa un vistazo a [gpl-3.0.txt](gpl-3.0.txt)
 
 Nota: debes citar a la AEMET como autora de los partes meteorológicos.
 
