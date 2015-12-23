@@ -42,10 +42,20 @@ public class PMA {
         xmlStream = new XMLStream();
     }
     
-    InputStream getRequest(URL url) {
+    InputStream getRequest(URL url) throws MunicipioIdNotFoundException {
         InputStream content = null;
         try {
             connection = (HttpURLConnection) url.openConnection();
+            /* 
+             * HTTP status code definitions: 
+             * http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html 
+             */
+            int httpCode = connection.getResponseCode();
+            boolean isError = httpCode >= 400;
+            if (isError) {
+                String errorMessage = connection.getResponseMessage();
+                throw new MunicipioIdNotFoundException("Error " + httpCode + " - " + errorMessage);
+            }            
             content = (InputStream) connection.getInputStream();
         } catch (IOException ex) {
             Logger.getLogger(XMLStream.class.getName()).log(Level.SEVERE, null, ex);
@@ -65,7 +75,7 @@ public class PMA {
                 URL url = new URL(AEMET_URL + String.format("%05d", municipio) + ".xml");
                 InputStream data = getRequest(url);
                 previsiones.addAll(xmlStream.parsePrevisiones(data));
-            } catch (MalformedURLException ex) {
+            } catch (MalformedURLException | MunicipioIdNotFoundException ex) {
                 Logger.getLogger(PMA.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
