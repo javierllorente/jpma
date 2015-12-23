@@ -13,6 +13,28 @@ Copyright (C) 2012-2015 Javier Llorente <javier@opensuse.org>
 
 
 
+Instalación
+-------------
+
+
+Para poder usar jPMA como dependencia en otros proyectos que tengas en local, 
+tienes que instalarlo en el repositorio local de Maven;
+
+Clona este repositorio
+```
+git clone https://github.com/javierllorente/jpma.git
+```
+y ejecuta la siguiente orden dentro del directorio jpma:
+```
+mvn install
+``` 
+
+También puedes instalar jPMA directamente con un IDE que 
+soporte [Git](http://git-scm.com/) y [Maven](https://maven.apache.org/) como [NetBeans](http://www.netbeans.org/). 
+
+
+
+
 Ejemplos de uso
 ---------------
 
