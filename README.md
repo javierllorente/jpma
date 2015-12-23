@@ -17,7 +17,7 @@ Instalación
 -------------
 
 
-Para poder usar jPMA como dependencia en otros proyectos que tengas en local, 
+Para poder usar jPMA como dependencia en otros proyectos de Maven que tengas en local, 
 tienes que instalarlo en el repositorio local de Maven;
 
 Clona este repositorio
@@ -32,7 +32,7 @@ mvn install
 También puedes instalar jPMA directamente con un IDE que 
 soporte [Git](http://git-scm.com/) y [Maven](https://maven.apache.org/) como [NetBeans](http://www.netbeans.org/). 
 
-
+Si no usas Maven, simplemente copia el jar de jpma al directorio correspondiente.
 
 
 Ejemplos de uso
