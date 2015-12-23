@@ -55,7 +55,8 @@ class Municipios {
                     }
                 } // for
             } else {
-                throw new MunicipioIdNotFoundException("No se pueden obtener los IDs de los municipios de la provincia");
+                String msg = "No se pueden obtener los IDs de los municipios de la provincia de ";
+                throw new MunicipioIdNotFoundException(msg + provincia.toString());
             }
         } // if
         return idsMunicipios;
