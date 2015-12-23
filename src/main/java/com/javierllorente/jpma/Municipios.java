@@ -34,7 +34,7 @@ class Municipios {
     private static final String AEMET_URL = "http://www.aemet.es/es/eltiempo/prediccion/municipios?p=";
     private static Document doc = null;
 
-    static ArrayList<Integer> getIds(Provincia provincia) {
+    static ArrayList<Integer> getIds(Provincia provincia) throws MunicipioIdNotFoundException {
         ArrayList<Integer> idsMunicipios = new ArrayList<>();
         try {
             doc = Jsoup.connect(AEMET_URL + provincia.getId() + "&w=t").get();
@@ -43,16 +43,20 @@ class Municipios {
         }
         if (doc != null) {
             Elements linkElements = doc.select("tr.localidades > td > a");
-            final String regex = "\\D";
-            for (Element linkElement : linkElements) {
-                String result = linkElement.attr("href");
-                String[] items = result.split(regex);
-                for (String item : items) {
-                    if (!item.isEmpty()) {
-                        idsMunicipios.add(Integer.parseInt(item));
+            if (linkElements.size()>0) {            
+                final String regex = "\\D";
+                for (Element linkElement : linkElements) {
+                    String result = linkElement.attr("href");
+                    String[] items = result.split(regex);
+                    for (String item : items) {
+                        if (!item.isEmpty()) {
+                            idsMunicipios.add(Integer.parseInt(item));
+                        }
                     }
-                }
-            } // for		
+                } // for
+            } else {
+                throw new MunicipioIdNotFoundException("No se pueden obtener los IDs de los municipios de la provincia");
+            }
         } // if
         return idsMunicipios;
     }

@@ -104,7 +104,11 @@ public class PMA {
      * @param provincia Provincia.PROVINCIA (ej: Provincia.MADRID)
      */
     public void setProvincia(Provincia provincia) {
-        listaMunicipios.addAll(Municipios.getIds(provincia));
+        try {
+            listaMunicipios.addAll(Municipios.getIds(provincia));
+        } catch (MunicipioIdNotFoundException ex) {
+            Logger.getLogger(PMA.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     /**
