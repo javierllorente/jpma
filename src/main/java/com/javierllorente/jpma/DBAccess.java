@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2012-2015 Javier Llorente <javier@opensuse.org>
+ * Copyright (C) 2012-2021 Javier Llorente <javier@opensuse.org>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -33,15 +33,14 @@ public class DBAccess {
     private Connection dbConnection = null;
     private PreparedStatement preparedStatement = null;
 
-    public DBAccess(String server, String db, String username, String password) {
-        getConnection(server, db, username, password);
+    public DBAccess(String url, String username, String password) {
+        getConnection(url, username, password);
     }
 
-    private void getConnection(String server, String db, String username, 
-            String password) {
+    private void getConnection(String url, String username, String password) {
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            dbConnection = (Connection) DriverManager.getConnection(server + db, 
+            dbConnection = (Connection) DriverManager.getConnection(url, 
                     username, password);
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(DBAccess.class.getName()).log(Level.SEVERE, null, ex);
