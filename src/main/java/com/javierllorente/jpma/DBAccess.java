@@ -33,18 +33,16 @@ public class DBAccess {
     private Connection dbConnection = null;
     private PreparedStatement preparedStatement = null;
 
-    public DBAccess(String url, String username, String password) {
+    public DBAccess(String url, String username, String password) throws 
+            ClassNotFoundException, SQLException {
         getConnection(url, username, password);
     }
 
-    private void getConnection(String url, String username, String password) {
-        try {
-            Class.forName("com.mysql.jdbc.Driver");
-            dbConnection = (Connection) DriverManager.getConnection(url, 
-                    username, password);
-        } catch (ClassNotFoundException | SQLException ex) {
-            Logger.getLogger(DBAccess.class.getName()).log(Level.SEVERE, null, ex);
-        }
+    private void getConnection(String url, String username, String password)
+            throws ClassNotFoundException, SQLException {
+        Class.forName("com.mysql.jdbc.Driver");
+        dbConnection = (Connection) DriverManager.getConnection(url,
+                username, password);
     }
 
     public void alimentarLocalidad(Prevision prevision) {
