@@ -42,8 +42,6 @@ Edita jpma.properties; pon los datos de acceso a la base de datos y los municipi
 de los que quieras obtener previsiones. Normalmente son 
 siete por municipio (previsión del tiempo para los próximos siete días).
 
-```
-
 Base de datos
 -------------
 
