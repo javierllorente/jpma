@@ -55,7 +55,7 @@ public class Main {
         }
 
         DBAccess db = new DBAccess(props.getProperty("jpma.db.url"),
-                props.getProperty("username"), props.getProperty("password"));
+                props.getProperty("jpma.db.username"), props.getProperty("jpma.db.password"));
 
         String provinciasStr = props.getProperty("jpma.provincias");
         if (!(provinciasStr == null || provinciasStr.isEmpty()
