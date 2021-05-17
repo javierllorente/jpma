@@ -4,9 +4,9 @@ Predicción meteorológica de la AEMET (PMA)
 
 Paquete: com.javierllorente.jpma
 
-Biblioteca de Java para obtener y procesar los partes meteorológicos de la [AEMET](http://www.aemet.es/). Los partes meteorológicos se pueden usar y reproducir siempre que se mencione a la AEMET como autora de los mismos.
+Programa para obtener y procesar los partes meteorológicos de la [AEMET](http://www.aemet.es/). Los partes meteorológicos se pueden usar y reproducir siempre que se mencione a la AEMET como autora de los mismos.
 
-Copyright (C) 2012-2015 Javier Llorente <javier@opensuse.org>
+Copyright (C) 2012-2021 Javier Llorente <javier@opensuse.org>
 
 
 
@@ -38,34 +38,9 @@ Si no usas Maven, simplemente copia el jar de jpma al directorio correspondiente
 Ejemplos de uso
 ---------------
 
-El método `getPrevisiones()` devuelve objetos de tipo `Prevision` que normalmente son 
+Edita jpma.properties; pon los datos de acceso a la base de datos y los municipios/provincias 
+de los que quieras obtener previsiones. Normalmente son 
 siete por municipio (previsión del tiempo para los próximos siete días).
-
-Para obtener los partes de todos los municipios de la provincia, ponemos el nombre de la provincia.
-```java
-PMA pma = new PMA();
-ArrayList<Prevision> previsiones = new ArrayList<>();
-
-pma.setProvincia(Provincia.MADRID);
-previsiones.addAll(pma.getPrevisiones());
-
-for (Prevision prevision : previsiones) {
-	System.out.print(prevision.getId_prediccion() + " " + prevision.getId() + " " + prevision.getMunicipio() + " ");
-	System.out.println(prevision.getFecha() + " " + prevision.getEstado_cielo() + " " + prevision.getT_max() + "C " + prevision.getT_min() + "C");
-}
-```
-
-Si sólo queremos obtener el parte meteorológico de un municipio, usaremos el método `setMunicipio()`.
-```java
-PMA pma = new PMA();
-ArrayList<Prevision> previsiones = new ArrayList<>();
-
-pma.setMunicipio(28079);
-previsiones.add(pma.getPrevisiones());
-for (Prevision prevision : previsiones) {
-	System.out.print(prevision.getId_prediccion() + " " + prevision.getId() + " " + prevision.getMunicipio() + " ");
-	System.out.println(prevision.getFecha() + " " + prevision.getEstado_cielo() + " " + prevision.getT_max() + "C " + prevision.getT_min() + "C");
-}
 
 ```
 
