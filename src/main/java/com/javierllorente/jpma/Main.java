@@ -58,20 +58,18 @@ public class Main {
                 props.getProperty("jpma.db.username"), props.getProperty("jpma.db.password"));
 
         String provinciasStr = props.getProperty("jpma.provincias");
-        if (!(provinciasStr == null || provinciasStr.isEmpty()
-                || provinciasStr.equals("\"\""))) {
+        if (!(provinciasStr == null || provinciasStr.isEmpty())) {
             Set<String> provincias = new HashSet<>(Arrays.asList(provinciasStr
-                    .replaceAll("\"", "").split(",")));
+                    .split(",")));
             for (String p : provincias) {
                 pma.setProvincia(Provincia.valueOf(p));
             }
         }
 
         String municipiosStr = props.getProperty("jpma.municipios");
-        if (!(municipiosStr == null || municipiosStr.isEmpty()
-                || municipiosStr.equals("\"\""))) {
+        if (!(municipiosStr == null || municipiosStr.isEmpty())) {
             Set<String> municipios = new HashSet<>(Arrays.asList(municipiosStr
-                    .replaceAll("\"", "").split(",")));
+                    .split(",")));
             for (String m : municipios) {
                 pma.setMunicipio(Integer.parseInt(m));
             }
