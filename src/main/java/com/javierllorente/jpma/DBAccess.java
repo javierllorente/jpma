@@ -40,7 +40,6 @@ public class DBAccess {
 
     private void getConnection(String url, String username, String password)
             throws ClassNotFoundException, SQLException {
-        Class.forName("com.mysql.jdbc.Driver");
         dbConnection = (Connection) DriverManager.getConnection(url,
                 username, password);
     }
